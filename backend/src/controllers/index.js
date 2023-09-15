@@ -5,3 +5,5 @@ module.exports = {
     productsController,
     salesController,
 };
+
+// teste
