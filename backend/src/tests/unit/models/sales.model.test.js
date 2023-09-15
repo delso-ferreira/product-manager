@@ -1,9 +1,9 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
 
-const connection = require('../../../src/models/connection');
+const connection = require('../../../models/connection');
 
-const { salesModel } = require('../../../src/models/index');
+const { salesModel } = require('../../../models/index');
 const { allSalesFromDB, allSalesFromModel, mockSalesByIDModel } = require('../../mocks/salesMocks');
 
 describe('Testando camada model da Sales', function () {

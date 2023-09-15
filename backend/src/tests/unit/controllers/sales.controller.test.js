@@ -1,8 +1,8 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
 const { allSalesFromModel } = require('../../mocks/salesMocks');
-const { salesService } = require('../../../src/services/index');
-const { salesController } = require('../../../src/controllers/index');
+const { salesService } = require('../../../services/index');
+const { salesController } = require('../../../controllers/index');
 
 describe('Testes na camada controller', function () {
     it('Testa o retorno da busca de AllSales', async function () {
