@@ -6,9 +6,9 @@ allProductsFromModel,
 allProductsFromDB, 
 newProductModel } = require('../../mocks/productsMocks');
 
-const connection = require('../../../models/connection');
+const connection = require('../../../src/models/connection');
 
-const { productsModel } = require('../../../models/index');
+const { productsModel } = require('../../../src/models/index');
 
 describe('Testa model', function () {
     it('testa a busca de todos os produtos', async function () {

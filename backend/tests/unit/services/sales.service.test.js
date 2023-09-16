@@ -1,8 +1,8 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
 const { allSalesFromModel } = require('../../mocks/productsMocks');
-const { salesModel } = require('../../../models/index');
-const { salesService } = require('../../../services/index');
+const { salesModel } = require('../../../src/models/index');
+const { salesService } = require('../../../src/services/index');
 const { mockNewSaleFromDB, mockNewSaleFromModel } = require('../../mocks/salesMocks');
 
 describe('testa a camada service', function () {
@@ -36,13 +36,10 @@ describe('testa a camada service', function () {
       it('Testa nova venda', async function () {
         sinon.stub(salesModel, 'createNewSale').resolves(mockNewSaleFromModel);
 
-        const newData = { 
-          id: mockNewSaleFromDB, 
-          itemsSold: [{ productId: 1, quantity: 1 }, { productId: 1, quantity: 10 }] };
-        const dataService = await salesService.createNewSale([{
-           productId: 1, quantity: 1 }, { productId: 1, quantity: 10 }]);
+        const newData = { id: mockNewSaleFromDB, itemsSold: [{ productId: 1, quantity: 1 }, { productId: 1, quantity: 10 }] };
+        const dataService = await salesService.createNewSale([{ productId: 1, quantity: 1 }, { productId: 1, quantity: 10 }]);
         
-        expect(dataService.data).to.be.equal(newData);
+        expect(dataService.data).to.deep.equal(newData);
       });
      
     afterEach(function () {

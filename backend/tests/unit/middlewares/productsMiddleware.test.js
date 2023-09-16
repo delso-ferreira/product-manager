@@ -1,6 +1,6 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
-const { validateProductName } = require('../../../middlewares/index');
+const { validateProductName } = require('../../../src/middlewares/products.middleware');
 
 describe('Testa os middlewares da aplicação', function () {
     it('Testando as validações de Produtos', function () {
@@ -57,8 +57,7 @@ describe('Testa os middlewares da aplicação', function () {
         validateProductName(req, res, next);
     
         expect(res.status.calledWith(422)).to.be.equal(true);
-        expect(res.json.calledWith({ 
-            message: '"name" length must be at least 5 characters long' })).to.be.equal(true);
+        expect(res.json.calledWith({ message: '"name" length must be at least 5 characters long' })).to.be.equal(true);
     });
 
     afterEach(function () {

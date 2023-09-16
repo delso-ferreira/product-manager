@@ -14,7 +14,7 @@ const getSalesById = async (id) => {
 };
 
 const createNewSale = async (newSale) => {
-    const newId = salesModel.createNewSale(newSale);
+    const newId = await salesModel.createNewSale(newSale);
 
     const data = { 
     id: newId, 

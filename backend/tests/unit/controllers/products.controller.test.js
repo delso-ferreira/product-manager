@@ -1,12 +1,8 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
-const { 
-  allProductsFromModel, 
-  getProductByIdModel, 
-  newProductModel, 
-} = require('../../mocks/productsMocks');
-const { productsService } = require('../../../services/index');
-const { productsController } = require('../../../controllers/index');
+const { allProductsFromModel, getProductByIdModel, newProductModel } = require('../../mocks/productsMocks');
+const { productsService } = require('../../../src/services/index');
+const { productsController } = require('../../../src/controllers/index');
 
 describe('Testes na camada controller', function () {
     it('Testando o retorno do controller de todos os produtos', async function () {
