@@ -21,7 +21,7 @@ const createNewSale = async (newSale) => {
     itemsSold: newSale,
     };
 
-    return { data };
+    return data;
 };
 
 module.exports = {

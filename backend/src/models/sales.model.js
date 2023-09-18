@@ -26,7 +26,7 @@ const getSalesById = async (id) => {
 };
 
 const createNewSale = async (newSale) => {
-    const [{ id }] = await connection
+    const [{ insertId }] = await connection
     .execute('INSERT INTO sales (date) VALUE (?);', [new Date()]);
 
     const getSales = newSale.map(async (sale) => {
@@ -34,14 +34,14 @@ const createNewSale = async (newSale) => {
     const saleColumns = formatColumns(sale);
     const salequery = await connection.execute(
       `INSERT INTO sales_products (sale_id, ${saleColumns}) VALUES (?, ${salePlaceholders})`,
-         [id, ...Object.values(sale)],
+         [insertId, ...Object.values(sale)],
       );
 
     return salequery;
   });
 
   await Promise.all(getSales);
-  return id;
+  return insertId;
 };
 
 module.exports = {

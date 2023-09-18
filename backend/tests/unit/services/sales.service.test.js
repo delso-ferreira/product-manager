@@ -39,7 +39,7 @@ describe('testa a camada service', function () {
         const newData = { id: mockNewSaleFromDB, itemsSold: [{ productId: 1, quantity: 1 }, { productId: 1, quantity: 10 }] };
         const dataService = await salesService.createNewSale([{ productId: 1, quantity: 1 }, { productId: 1, quantity: 10 }]);
         
-        expect(dataService.data).to.deep.equal(newData);
+        expect(dataService).to.deep.equal(newData);
       });
      
     afterEach(function () {

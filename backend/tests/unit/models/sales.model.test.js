@@ -26,7 +26,7 @@ describe('Testando camada model da Sales', function () {
     });
 
     it('Testa o cadastro de uma nova venda', async function () {
-        sinon.stub(connection, 'execute').resolves([{ id: 1 }]);
+        sinon.stub(connection, 'execute').resolves([{ insertId: 1 }]);
 
         const response = await salesModel.createNewSale([
             {
