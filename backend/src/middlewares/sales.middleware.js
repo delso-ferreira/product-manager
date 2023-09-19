@@ -34,4 +34,5 @@ const validateNewSale = async (req, res, next) => {
   
   module.exports = {
     validateNewSale,
+    validateProduct,
   };
