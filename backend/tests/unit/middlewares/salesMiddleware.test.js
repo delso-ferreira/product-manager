@@ -19,9 +19,9 @@ describe('Testando middleware da rota sales', function () {
         const next = sinon.stub().returns();
 
         const req = {
-            body: {
+            body: [{
                 productId: '',
-            },
+            }],
         };
 
         const res = {
@@ -37,9 +37,9 @@ describe('Testando middleware da rota sales', function () {
         const next = sinon.stub().returns();
 
         const req = {
-            body: {
+            body: [{
                 quantity: '',
-            },
+            }],
         };
 
         const res = {
