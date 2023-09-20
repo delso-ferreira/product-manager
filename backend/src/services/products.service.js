@@ -1,6 +1,6 @@
 const { productsModel } = require('../models/index');
 
-const getAllProducts = async () => { 
+const getAllProducts = async () => {
   const getProducts = await productsModel.getAllProducts();
   return getProducts;
 };
@@ -15,17 +15,30 @@ const getByProductById = async (id) => {
 
 const createProduct = async (name) => {
   const productName = await productsModel.createProduct(name);
-  
-    const product = {
-      id: productName.insertId,
-      name,
-    };
 
-    return product;
+  const product = {
+    id: productName.insertId,
+    name,
+  };
+
+  return product;
 };
 
-module.exports = { 
-  getAllProducts, 
+const updateProduct = async (name, identificador) => {
+  const productUpdate = await productsModel.updateProduct(name, identificador);
+
+  const allProducts = await getAllProducts();
+
+  const confirmId = allProducts.find(({ id }) => id === Number(identificador));
+  if (!confirmId) {
+    return { status: 404, message: 'Product not found' };
+  }
+  return productUpdate;
+};
+
+module.exports = {
+  getAllProducts,
   getByProductById,
-  createProduct, 
+  createProduct,
+  updateProduct,
 };

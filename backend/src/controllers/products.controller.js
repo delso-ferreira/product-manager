@@ -6,7 +6,7 @@ const getAllProducts = async (_req, res) => {
 };
 
 const getProductById = async (req, res) => {
-    const { id } = req.params;    
+    const { id } = req.params;
 
     const getById = await productsService.getByProductById(id);
     if (getById.message === 'NOT_FOUND') {
@@ -18,13 +18,23 @@ const getProductById = async (req, res) => {
 const createProduct = async (req, res) => {
     const { name } = req.body;
 
-const newProduct = await productsService.createProduct(name);
+    const newProduct = await productsService.createProduct(name);
 
-return res.status(201).json(newProduct);
+    return res.status(201).json(newProduct);
+};
+
+const updateProduct = async (req, res) => {
+    const { id } = req.params;
+    const { name } = req.body;
+
+    const productUpdate = await productsService.updateProduct(name, id);
+
+    return res.status(200).json(productUpdate);
 };
 
 module.exports = {
     getAllProducts,
     getProductById,
     createProduct,
+    updateProduct,
 };
