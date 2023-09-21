@@ -7,7 +7,7 @@ const { productsService } = require('../../../src/services/index');
 describe('testa a camada service', function () {
     it('teste da função camada service', async function () {
         sinon.stub(productsModel, 'getAllProducts')
-        .resolves(allProductsFromModel);
+            .resolves(allProductsFromModel);
 
         const getProducts = await productsService.getAllProducts();
 
@@ -15,8 +15,8 @@ describe('testa a camada service', function () {
     });
 
     it('testa o getById', async function () {
-       sinon.stub(productsModel, 'getProductById') 
-        .resolves(getProductByIdModel);
+        sinon.stub(productsModel, 'getProductById')
+            .resolves(getProductByIdModel);
 
         const getProdcutById = await productsService.getByProductById(1);
 
@@ -24,22 +24,32 @@ describe('testa a camada service', function () {
     });
 
     it('testa o erro do getById', async function () {
-        sinon.stub(productsModel, 'getProductById') 
-         .resolves();
- 
-         const productId = await productsService.getByProductById(500);
- 
-         expect(productId).to.deep.equal({ message: 'NOT_FOUND' });
-     });
+        sinon.stub(productsModel, 'getProductById')
+            .resolves();
 
-     it('testa a função createProduct na camada Service', async function () {
+        const productId = await productsService.getByProductById(500);
+
+        expect(productId).to.deep.equal({ message: 'NOT_FOUND' });
+    });
+
+    it('testa a função createProduct na camada Service', async function () {
         sinon.stub(productsModel, 'createProduct')
-        .resolves(newProductModel);
+            .resolves(newProductModel);
 
         const newProduct = await productsModel.createProduct(1, 'Palmeiras não tem mundial');
         expect(newProduct.name).to.deep.equal('Palmeiras não tem mundial');
         expect(newProduct.id).to.deep.equal(1);
-     });
+    });
+    it('Erro de product not found com id errado', async function () {
+        const insertId = 5555;
+        const insertData = { name: 'Teste' };
+
+        const response = await productsService.updateProduct(insertData, insertId);
+
+        expect(response.status).to.equal(404);
+        /* expect(response.data).to.deep.equal({ message: '"name" length must be at least 5 characters long' }); */
+      });
+
     afterEach(function () {
         sinon.restore();
     });

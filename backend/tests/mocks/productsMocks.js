@@ -34,8 +34,18 @@ const getProductByIdModel = {
 };
 
 const newProductModel = {
-  id: 1,
-  name: 'Palmeiras não tem mundial',
+    id: 1,
+    name: 'Palmeiras não tem mundial',
+};
+
+const productUpdatedModel = {
+    id: 1,
+    name: 'Capa de invisibilidade',
+};
+
+const productServiceUpdate = {
+  status: 'SUCCESSFUL', 
+  data: productUpdatedModel,
 };
 
   module.exports = { 
@@ -43,4 +53,6 @@ const newProductModel = {
     allProductsFromDB, 
     getProductByIdModel, 
     newProductModel,
+    productUpdatedModel,
+    productServiceUpdate,
   };
