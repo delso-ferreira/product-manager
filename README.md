@@ -27,14 +27,11 @@ Para executar este projeto em sua máquina local, siga as etapas abaixo:
 
 Clone este repositório:
 ```
-Copy code
 git clone https://github.com/seu-usuario/nome-do-repositorio.git
 ```
 
 Instale as dependências:
 ```
-bash
-Copy code
 cd nome-do-repositorio
 npm install
 ```
@@ -43,22 +40,16 @@ Configure o banco de dados MySQL com as credenciais necessárias.
 
 Execute o Docker Compose para subir os serviços de backend e banco de dados:
 ``` 
-bash
-Copy code
 docker-compose up -d --build
 ```
 
 Acesse o terminal do docker:
 ``` 
-bash
-Copy code
 docker exec -it store_manager bash
 ```
 
 Inicie o servidor:
 ```
-bash
-Copy code
 npm run dev
 ```
 
@@ -67,7 +58,6 @@ A API estará disponível em http://localhost:3000. Você pode usar uma ferramen
 Testes
 Para executar os testes, você pode usar os seguintes comandos dentro do docker:
 ```
-Copy code
 npm run test:mocha     # roda os testes do mocha
 npm run test:coverage  # roda os testes e mostra a cobertura geral
 npm run test:mutation  # roda os testes e mostra a cobertura de mutações
