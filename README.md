@@ -27,7 +27,7 @@ Para executar este projeto em sua máquina local, siga as etapas abaixo:
 
 Clone este repositório:
 ```
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/delso-ferreira/product-manager.git
 ```
 
 Instale as dependências:
